@@ -41,7 +41,7 @@ export const bingoTasks = [
   {
     id: 6,
     title: "Pookalam",
-    description: "Upload a picture of you with the pookalam. Also mention the number of different flowers used in the pookalam",
+    description: "Upload an aesthetic picture of the pookalam. Also mention the number of different flowers used in the pookalam",
     textInput: true,
     answer: "8",
     uploadImage: true,
@@ -51,6 +51,7 @@ export const bingoTasks = [
     title: "Sadhya trivia",
     description: "Hope you enjoyed your Sadhya! Now, how many different items were there on the leaf for our Sadhya?",
     textInput: true,
+    answer: "8",
     uploadImage: false
   },
   {
@@ -58,6 +59,7 @@ export const bingoTasks = [
     title: "Sadhya trivia",
     description: "Hope you enjoyed your Sadhya! Now, how many different items were there on the leaf for our Sadhya?",
     textInput: true,
+    answer: "8",
     uploadImage: false
   },
   {
@@ -65,6 +67,7 @@ export const bingoTasks = [
     title: "Sadhya trivia",
     description: "Hope you enjoyed your Sadhya! Now, how many different items were there on the leaf for our Sadhya?",
     textInput: true,
+    answer: "8",
     uploadImage: false
   },
 ];

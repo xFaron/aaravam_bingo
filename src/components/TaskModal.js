@@ -137,7 +137,7 @@ function TaskModal({ task, userName, onClose }) {
           {
             task.textInput && (
               <>
-                <label>Your notes:</label>
+                <label>Answer:</label>
                 <input 
                   type="text" 
                   value={text} 

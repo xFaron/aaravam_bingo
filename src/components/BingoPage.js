@@ -53,7 +53,14 @@ function BingoPage() {
   return (
     <div className="bingo-page">
       <h1>Onam Hitlist</h1>
-      <h5>You have to finish all the tasks below to win a special prize. Once all the tasks are completed, a random person will be called onto the stage to claim the price</h5>
+      <h5>Complete all the tasks to win a surprise prize</h5>
+
+      {
+        completedTasks.size == 9 && (
+          <h5 className='well-done-btn' >Well Done! Wait for the end of the game. to know the results</h5>
+        )
+      }
+
       <div className="bingo-grid">
         {bingoTasks.map(task => (
           <BingoCell
