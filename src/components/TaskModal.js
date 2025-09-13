@@ -50,7 +50,7 @@ function TaskModal({ task, userName, onClose }) {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (task.textInput && task.answer !== text ) {
+    if (task.textInput && task.answer.toLowerCase() !== text.toLowerCase() ) {
       alert('Wrong Answer :)');
       setIsSubmitting(false);
       return;

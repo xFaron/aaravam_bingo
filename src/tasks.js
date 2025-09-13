@@ -25,7 +25,7 @@ export const bingoTasks = [
   { 
     id: 4,
     title: "10 on 10", 
-    description: "According to mallu standards, which movie star is considered a 10 on 10",
+    description: "According to mallu standards, who is a 10?",
     textInput: true,
     answer: "Mohanlal",
     uploadImage: false
@@ -56,18 +56,18 @@ export const bingoTasks = [
   },
   {
     id: 8,
-    title: "Sadhya trivia",
-    description: "Hope you enjoyed your Sadhya! Now, how many different items were there on the leaf for our Sadhya?",
-    textInput: true,
-    answer: "8",
+    title: "Pickup line",
+    description: "Write a malayalam pickup line... to make it more fun, say it to someone",
+    disclaimer: "You will have to pickup on stage ^_^",
+    textInput: false,
     uploadImage: false
   },
   {
     id: 9,
-    title: "Sadhya trivia",
-    description: "Hope you enjoyed your Sadhya! Now, how many different items were there on the leaf for our Sadhya?",
-    textInput: true,
-    answer: "8",
+    title: "'Zha'",
+    description: "Ask a Mallu friend how 'zha' is pronounced",
+    disclaimer: "You will have to pronounce the same on stage :)",
+    textInput: false,
     uploadImage: false
   },
 ];
