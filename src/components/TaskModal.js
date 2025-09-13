@@ -50,7 +50,7 @@ function TaskModal({ task, userName, onClose }) {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (task.textInput && task.answer != text ) {
+    if (task.textInput && task.answer !== text ) {
       alert('Wrong Answer :)');
       setIsSubmitting(false);
       return;
@@ -161,8 +161,8 @@ function TaskModal({ task, userName, onClose }) {
           }
 
           <div className="modal-actions">
-            <button type="button" onClick={() => onClose(false)} disabled={isSubmitting}>Cancel</button>
-            <button type="submit" disabled={isSubmitting}>
+            <button className="btn btn-secondary" type="button" onClick={() => onClose(false)} disabled={isSubmitting}>Cancel</button>
+            <button className="btn btn-primary" type="submit" disabled={isSubmitting}>
               {isSubmitting ? 'Saving...' : 'Save & Complete'}
             </button>
           </div>

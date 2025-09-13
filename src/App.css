@@ -1,128 +1,326 @@
-.App {
-  text-align: center;
+/* --- 1. Global Styles & Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary-color: #FF9B00; 
+  --secondary-color: #FFE100; 
+  --success-color: #10b981;  /* A vibrant green */
+  --light-success-color: #d1fae5;
+  --bg-color: #f4d5c5;       /* A soft off-white background */
+  --card-bg-color: #ffffff;
+  --text-color: #4F200D;
+  --subtle-text-color: #6b7280;
+  --border-color: #9A3F3F;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+html {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+h1, h2 {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* --- 2. General UI Elements (Buttons & Forms) --- */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.start-btn {
+  margin: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
   color: white;
+  box-shadow: 0 4px 15px rgba(106, 48, 147, 0.2);
 }
 
-.App-link {
-  color: #61dafb;
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(106, 48, 147, 0.3);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-secondary {
+  background-color: transparent;
+  color: var(--subtle-text-color);
+  border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+  background-color: var(--border-color);
+  color: var(--text-color);
 }
 
-/* General Layout */
+
+input[type="text"],
+textarea {
+  /* width: 100%; */
+  padding: 12px;
+  margin: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(106, 48, 147, 0.15);
+}
+
+input[type="file"] {
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+/* --- 3. Main Layout & Page Containers --- */
 .login-container, .bingo-page {
   max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
+  margin: 8rem auto;
+  padding: 2rem;
   text-align: center;
+  background-color: var(--card-bg-color);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* Bingo Grid */
+/* --- 4. Bingo Grid & Cells --- */
 .bingo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 20px;
+  gap: 1.25rem; /* Increased gap */
+  margin-top: 2rem;
 }
 
 .bingo-cell {
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  height: 120px;
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  aspect-ratio: 1 / 1; /* Ensures cells are always square */
+  height: auto; /* Overrides fixed height for responsive squares */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   position: relative;
-  background-color: #f9f9f9;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .bingo-cell:hover {
-  transform: scale(1.05);
-  border-color: #007bff;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color);
 }
 
 .bingo-cell.completed {
-  background-color: #d4edda;
-  border-color: #c3e6cb;
-  color: #155724;
-  font-weight: bold;
+  background-color: var(--light-success-color);
+  border-color: var(--success-color);
+  color: var(--success-color);
+  transform: scale(0.98);
+}
+
+.bingo-cell.completed p {
+  opacity: 0.6;
 }
 
 .checkmark {
+  font-size: 3rem;
+  color: var(--success-color);
   position: absolute;
-  top: 5px;
-  right: 10px;
-  font-size: 24px;
-  color: #28a745;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* Modal Styling */
+.bingo-cell.completed .checkmark {
+  opacity: 1;
+}
+
+/* --- 5. Modal Styling with Animations --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(17, 24, 39, 0.6); /* A darker, cooler overlay */
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  padding: 1rem;
 }
 
 .modal-content {
   background: white;
-  padding: 2rem;
-  border-radius: 8px;
+  padding: 2.5rem;
+  border-radius: 16px;
   width: 90%;
-  max-width: 500px;
+  max-width: 550px;
   max-height: 90vh;
   overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: scaleUp 0.3s ease;
+}
+
+.modal-content .task-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+.modal-content h2 {
+  margin-bottom: 0.5rem;
+}
+.modal-content p {
+  color: var(--subtle-text-color);
+  margin-bottom: 1.5rem;
 }
 
 .modal-content form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 1rem; /* Consistent gap */
 }
 
 .modal-content label {
     text-align: left;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-color);
 }
 
 .modal-actions {
     display: flex;
     justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Make sure to add the button classes in your JSX for them to apply! */
+/* e.g., <button className="btn btn-primary">Save</button> */
+/* e.g., <button className="btn btn-secondary">Cancel</button> */
+
+/* --- 6. Responsive Design (Mobile Optimizations for 3x3 Grid) --- */
+@media (max-width: 768px) {
+
+  /* -- Body and Typography Adjustments -- */
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  
+  /* -- Layout & Container Adjustments -- */
+  .login-container, .bingo-page {
+    /* Reduce padding to give the grid more horizontal space */
+    margin: 1.5rem 1rem;
+    padding: 4rem 1rem 2rem 1rem;
+    border-radius: 12px;
+  }
+
+  /* -- THE CORE CHANGE: Compact 3x3 Grid -- */
+  .bingo-grid {
+    /* Keep the 3 columns, but significantly reduce the gap between cells */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem; /* Was 1.25rem on desktop */
+  }
+
+  /*
+    NOTE: The rule for `.bingo-cell:last-child` has been REMOVED,
+    as it's no longer needed for a 3-column layout.
+  */
+
+  .bingo-cell {
+    /* Reduce padding inside the cell to give text more room */
+    padding: 0.25rem;
+    font-size: 0.8rem; /* Make the font smaller to fit in the compact cell */
+    font-weight: 600;
+  }
+
+  .checkmark {
+    /* Make the checkmark smaller to fit inside the smaller cells */
+    font-size: 2rem;
+  }
+
+  /* -- Modal Adjustments (These are still very useful) -- */
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .modal-actions .btn {
+    width: 100%; 
+  }
+
+  /* -- Form & Button Adjustments -- */
+  .btn {
+    padding: 10px 18px;
+    font-size: 15px;
+  }
 }

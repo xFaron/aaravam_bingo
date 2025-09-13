@@ -16,7 +16,7 @@ function LoginPage() {
 
   return (
     <div className="login-container">
-      <h1>Welcome to Bingo!</h1>
+      <h1>Welcome to Onam Hitlist!</h1>
       <form onSubmit={handleLogin}>
         <input
           type="text"
@@ -25,7 +25,7 @@ function LoginPage() {
           onChange={(e) => setName(e.target.value)}
           required
         />
-        <button type="submit">Start Playing</button>
+        <button type="submit" className="start-btn btn btn-primary">Start Playing</button>
       </form>
     </div>
   );
