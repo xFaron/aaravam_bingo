@@ -14,7 +14,7 @@ function LoginPage() {
     }
   };
 
-  const game_live = false;
+  const game_live = true;
 
   return (
     <div className="login-container">
