@@ -14,19 +14,31 @@ function LoginPage() {
     }
   };
 
+  const game_live = false;
+
   return (
     <div className="login-container">
       <h1>Welcome to Onam Hitlist!</h1>
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <button type="submit" className="start-btn btn btn-primary">Start Playing</button>
-      </form>
+
+      { game_live && (
+        <form onSubmit={handleLogin}>
+          <input
+            type="text"
+            placeholder="Enter your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <button type="submit" className="start-btn btn btn-primary">Start Playing</button>
+        </form>
+        )
+      }
+
+      {
+        !game_live && (
+          <h5>The games have not begun yet!</h5>
+        )
+      }
     </div>
   );
 }
