@@ -14,7 +14,7 @@ function LoginPage() {
     }
   };
 
-  const game_live = true;
+  const game_live = false;
 
   return (
     <div className="login-container">
@@ -36,7 +36,7 @@ function LoginPage() {
 
       {
         !game_live && (
-          <h5>The games have not begun yet!</h5>
+          <h5>The games are done</h5>
         )
       }
     </div>
